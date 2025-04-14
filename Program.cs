@@ -16,7 +16,7 @@ builder.Services.AddScoped<PeliculaService>();
 builder.Services.AddScoped<SalaCineService>();
 builder.Services.AddScoped<IPeliculaSalaCineRepository, PeliculaSalaCineRepository>();
 builder.Services.AddScoped<ISalaCineRepository, SalaCineRepository>();
-builder.Services.AddScoped<IPeliculaRepository, PeliculaRepository>(); // Si tienes este repositorio también
+builder.Services.AddScoped<IPeliculaRepository, PeliculaRepository>(); 
 builder.Services.AddScoped<PeliculaSalaCineService>();
 
 // Configuración de Swagger
@@ -27,17 +27,18 @@ builder.Services.AddControllers()
     .AddNewtonsoftJson(options =>
     {
         options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-        options.SerializerSettings.DateFormatString = "yyyy-MM-ddT"; // Si es necesario, ajusta el formato de fecha.
+        options.SerializerSettings.DateFormatString = "yyyy-MM-ddT"; 
     });
 
 // Configuración de CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", builder => 
-        builder.WithOrigins("http://localhost:4200")  // Ajusta esta URL según donde tengas el frontend
+        builder.WithOrigins("http://localhost:4200", "https://67fc833ec1c2513cf23d0e83--pruebaviamaticav2.netlify.app") 
+
             .AllowAnyMethod()
             .AllowAnyHeader()
-            .AllowCredentials()); // Si estás usando cookies o autenticación, puedes permitir credenciales
+            .AllowCredentials()); 
 });
 
 var app = builder.Build();
