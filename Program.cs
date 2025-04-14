@@ -23,6 +23,13 @@ builder.Services.AddScoped<PeliculaSalaCineService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<CinemaContext>(options =>
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("DefaultConnection") 
+        ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.")
+    )
+);
+
 builder.Services.AddControllers()
     .AddNewtonsoftJson(options =>
     {
