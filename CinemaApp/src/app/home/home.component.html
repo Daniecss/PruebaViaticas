@@ -1,0 +1,58 @@
+<div class="home-wrapper">
+  <div class="sidebar">
+    <h3>Menú</h3>
+    <ul>
+      <li><a (click)="selectOption('dashboard')"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+
+      <li class="menu-item">
+        <a><i class="fa fa-film"></i> Películas</a>
+        <ul class="submenu">
+          <li><a (click)="selectOption('ingresarPelicula')"><i class="fa fa-edit"></i> Ingresar</a></li>
+          <li><a (click)="selectOption('updatepelicula')"><i class="fa fa-edit"></i> Actualizar </a></li>
+          <li><a (click)="selectOption('buscarpelicula')"><i class="fa fa-search"></i> Buscar</a></li>
+          <li><a (click)="selectOption('todaspelicula')"><i class="fa fa-list"></i> Mostrar</a></li>
+          <li><a (click)="selectOption('eliminarpelicula')"><i class="fa fa-trash"></i> Eliminar</a></li>
+        </ul>
+      </li>
+
+      <li class="menu-item">
+        <a><i class="fa fa-building"></i> Salas</a>
+        <ul class="submenu">
+          <li><a (click)="selectOption('ingresarSala')"><i class="fa fa-plus-square"></i> Ingresar</a></li>
+          <li><a (click)="selectOption('actualizararsala')"><i class="fa fa-edit"></i> Actualizar</a></li>
+          <li><a (click)="selectOption('buscarsala')"><i class="fa fa-search"></i> Buscar </a></li>
+          <li><a (click)="selectOption('buscarestadosala')"><i class="fa fa-search"></i> Buscar Estado </a></li>
+          <li><a (click)="selectOption('mostrarsalas')"><i class="fa fa-list"></i> Mostrar</a></li>
+          <li><a (click)="selectOption('eliminarsala')" routerLinkActive="active"><i class="fa fa-trash"></i> Eliminar</a></li>
+        </ul>
+      </li>
+
+      <li class="menu-item">
+        <a><i class="fa fa-video"></i> Funciones</a>
+        <ul class="submenu">
+          <li><a (click)="selectOption('asignarPeliculaSala')"><i class="fa fa-edit"></i> Asignar Película a Sala</a></li>
+          <li><a (click)="selectOption('buscarpeliculasala')"><i class="fa fa-calendar"></i> Buscar por Fecha</a></li>
+        </ul>
+      </li>
+
+      <li><a (click)="logout()" routerLink="/login"><i class="fa fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+    </ul>
+  </div>
+  
+  <div class="main-content">
+    <app-dashboard *ngIf="selectedOption === 'dashboard'"></app-dashboard>
+    <app-ingresar-pelicula *ngIf="selectedOption === 'ingresarPelicula'"></app-ingresar-pelicula>
+    <app-ingresar-sala *ngIf="selectedOption === 'ingresarSala'"></app-ingresar-sala>
+    <app-asignarpeliculasala *ngIf="selectedOption === 'asignarPeliculaSala'"></app-asignarpeliculasala>
+    <app-actualizarpelicula *ngIf="selectedOption === 'updatepelicula'"></app-actualizarpelicula>
+    <app-buscarpelicula *ngIf="selectedOption === 'buscarpelicula'"></app-buscarpelicula>
+    <app-mostarpeliculas *ngIf="selectedOption === 'todaspelicula'"></app-mostarpeliculas>
+    <app-eliminarpelicula *ngIf="selectedOption === 'eliminarpelicula'"></app-eliminarpelicula>    
+    <app-buscarsalafecha *ngIf="selectedOption === 'buscarsala'"></app-buscarsalafecha> 
+    <app-actualizarsala *ngIf="selectedOption === 'actualizararsala'"></app-actualizarsala>
+    <app-mostrarsalas *ngIf="selectedOption === 'mostrarsalas'"></app-mostrarsalas>
+    <app-eliminarsala *ngIf="selectedOption === 'eliminarsala'"></app-eliminarsala> 
+    <app-buscarpeliculasala *ngIf="selectedOption === 'buscarpeliculasala'"></app-buscarpeliculasala>
+    <app-buscarestadosala *ngIf="selectedOption === 'buscarestadosala'"></app-buscarestadosala>
+  </div>
+</div>

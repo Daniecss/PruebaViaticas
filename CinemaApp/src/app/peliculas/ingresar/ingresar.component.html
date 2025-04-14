@@ -1,0 +1,54 @@
+<h2 class="panel-title">Agregar una nueva película</h2>
+<div class="form-container">
+    <form (ngSubmit)="agregarPelicula()">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input 
+          id="nombre" 
+          [(ngModel)]="pelicula.Nombre" 
+          name="nombre" 
+          required 
+          class="form-control" 
+          placeholder="Ingrese el nombre de la película" 
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="duracion">Duración (en minutos):</label>
+        <input 
+          id="duracion" 
+          [(ngModel)]="pelicula.Duracion" 
+          name="duracion" 
+          required 
+          type="number" 
+          class="form-control" 
+          placeholder="Ingrese la duración de la película"
+        />
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Agregar Película</button>
+    </form>
+  
+  </div>
+  
+  <!-- Contenedor para la tabla -->
+  <div class="table-container">
+    <h3>Última Película Agregada</h3>
+    <div *ngIf="ultimaPelicula">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Duración (minutos)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ ultimaPelicula.Nombre }}</td>
+            <td>{{ ultimaPelicula.Duracion }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

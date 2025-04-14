@@ -1,0 +1,56 @@
+<h2 class="panel-title">Ingresar Sala</h2>
+<div class="form-container">
+  
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nombre">Nombre de la Sala:</label>
+        <input
+          type="text"
+          id="nombre"
+          [(ngModel)]="nombre"
+          name="nombre"
+          required
+          class="form-control"
+          placeholder="Ingrese el nombre de la sala"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="estado">Estado:</label>
+        <select
+          id="estado"
+          [(ngModel)]="estado"
+          name="estado"
+          class="form-control"
+        >
+          <option value="Disponible">Disponible</option>
+          <option value="No Disponible">No Disponible</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Guardar Sala</button>
+    </form>
+  
+  </div>
+  
+  <!-- Contenedor para la tabla -->
+  <div class="table-container">
+    <h3>Última Sala Agregada</h3>
+    <div *ngIf="ultimaSala">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ ultimaSala.nombre }}</td>
+            <td>{{ ultimaSala.estado }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

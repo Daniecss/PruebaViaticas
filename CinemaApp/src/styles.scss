@@ -1,0 +1,295 @@
+/* Estilo para el contenedor del formulario */
+.form-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transform: rotate(-1deg); 
+}
+
+/* Título del formulario */
+h2 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+/* Estilo de los campos de formulario */
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+/* Campos de texto, textarea, select */
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0.6rem;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 300;
+    transition: all 0.3s ease;
+}
+
+/* Efecto al hacer hover sobre los campos */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 91, 204, 0.5);
+}
+
+/* Botón */
+button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efecto hover del botón */
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Deshabilitar botón */
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Mensaje de error */
+.error {
+    color: red;
+    font-size: 0.9rem;
+}
+
+/* Estilo para el contenedor de la tabla */
+.table-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transform: rotate(1deg); 
+}
+
+/* Título de la tabla */
+.table-container h3 {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #495057;
+}
+
+/* Estilo para la tabla */
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; 
+}
+
+/* Estilo de las celdas de la tabla */
+.table th,
+.table td {
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Cambiar color de fondo de las celdas de encabezado */
+.table th {
+    background-color: #007bff !important;
+    color: white !important;
+}
+
+
+
+.table-striped tbody tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+/* Efecto de hover en filas de la tabla */
+.table tbody tr:hover {
+    background-color: #e2e2e2;
+    transform: scale(1.02);
+}
+
+/* Sombra ligera en la tabla para darle profundidad */
+.table-container {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.form-grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Estilos personalizados para los controles de paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.pagination-controls {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-controls li {
+    list-style: none;
+}
+
+.pagination-controls button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 0 0.2rem;
+}
+
+.pagination-controls button:hover {
+    background-color: #0056b3;
+}
+
+/* Título principal */
+.panel-title {
+    font-size: 3rem;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  .panel-subtitle {
+    font-size: 1.25rem;
+    color: #000000;
+  }
+  
+  /* Estilo para las tarjetas de totales */
+  .total-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.2s;
+  }
+  
+  .total-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+  }
+  
+  .card-text {
+    font-size: 2rem;
+  }
+  
+  .bg-info {
+    background-color: #17a2b8 !important;
+  }
+  
+  .bg-success {
+    background-color: #28a745 !important;
+  }
+  
+  .bg-warning {
+    background-color: #ffc107 !important;
+  }
+  
+  /* Estilo para la tabla */
+  .table-striped {
+    margin-top: 1rem;
+    border-collapse: collapse;
+  }
+  
+  .table-striped th, .table-striped td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  thead {
+    background-color: #343a40;
+    color: #fff;
+  }
+  
+  /* Paginación */
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .quick-links button {
+    margin: 0.5rem;
+    font-size: 1.25rem;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .quick-links button:hover {
+    background-color: #e2e6ea;
+    transform: translateY(-2px);
+  }
+  
+  /* Spinner */
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border-width: 0.3rem;
+  }
+
+  .main-content {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 2rem;
+    min-height: 100vh;
+    color: white;
+  
+    // Añade sombra para destacar
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  
+    // Asegúrate de que su contenido se vea bien distribuido
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  
+    // Si estás dentro de un layout más grande
+    width: 100%;
+    box-sizing: border-box;
+  }

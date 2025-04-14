@@ -1,0 +1,122 @@
+.home-wrapper {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #1a242f;
+  color: #fff;
+  padding-top: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s ease;
+  z-index: 100;
+  overflow-y: auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+.sidebar h3 {
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 20px;
+}
+
+.sidebar ul li a {
+  color: #ecf0f1;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  background-color: #16a085;
+  border-radius: 5px;
+}
+
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  padding-left: 20px;
+}
+
+.menu-item:hover .submenu {
+  display: block;
+}
+
+.submenu li a {
+  font-size: 16px;
+  color: #bdc3c7;
+}
+
+.submenu li a:hover {
+  background-color: #2ecc71;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  flex-grow: 1;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+app-ingresar-pelicula {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.toggle-sidebar {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #16a085;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+  }
+
+  .main-content {
+    margin-left: 70px;
+  }
+
+  .sidebar .submenu {
+    display: none;
+  }
+
+  .sidebar .submenu li a {
+    font-size: 14px;
+  }
+
+  .toggle-sidebar {
+    display: block;
+  }
+}
+

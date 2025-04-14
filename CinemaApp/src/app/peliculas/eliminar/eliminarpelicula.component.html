@@ -1,0 +1,27 @@
+<h2 class="panel-title">Eliminar Película</h2>
+<div class="table-container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID Película</th>
+                <th>Nombre</th>
+                <th>Duración (minutos)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pelicula of peliculas | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+                <td>{{ pelicula.idPelicula }}</td>
+                <td>{{ pelicula.nombre }}</td>
+                <td>{{ pelicula.duracion }}</td>
+                <td>
+                    <!-- Botón de eliminar con confirmación -->
+                    <button (click)="eliminarPelicula(pelicula.idPelicula)" class="btn btn-danger">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>
+

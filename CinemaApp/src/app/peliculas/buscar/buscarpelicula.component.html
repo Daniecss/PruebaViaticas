@@ -1,0 +1,40 @@
+<h2 class="panel-title">Buscar Película</h2>
+<div class="form-container">
+
+    <form (ngSubmit)="onBuscarPelicula()">
+      <div class="form-group">
+        <label for="idPelicula">Seleccionar Película</label>
+        <select [(ngModel)]="idPeliculaSeleccionada" name="idPelicula" id="idPelicula" required>
+          <option *ngFor="let pelicula of peliculas" [value]="pelicula.idPelicula">
+            ID: {{ pelicula.idPelicula }}, ({{ pelicula.nombre }})
+          </option>
+        </select>
+      </div>
+  
+      <button type="submit">Buscar</button>
+    </form>
+  
+    <div *ngIf="errorMessage" class="error-message" style="color: red;">
+      {{ errorMessage }}
+    </div>
+</div>
+
+<div *ngIf="peliculaEncontrada" class="table-container mt-4">
+    <h3>Detalles de la Película:</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID Película</th>
+          <th>Nombre</th>
+          <th>Duración</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ peliculaEncontrada.idPelicula }}</td>
+          <td>{{ peliculaEncontrada.nombre }}</td>
+          <td>{{ peliculaEncontrada.duracion }} minutos</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

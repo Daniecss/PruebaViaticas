@@ -1,0 +1,61 @@
+<h2 class="panel-title">Buscar y Actualizar Sala de Cine</h2>
+
+<div class="form-container">
+    <!-- Formulario para seleccionar sala -->
+    <form [formGroup]="buscarForm" (ngSubmit)="buscarSala()">
+      <div class="form-group">
+        <label for="id">Seleccione ID de Sala</label>
+        <select id="id" formControlName="id">
+          <option value="">--Seleccione una sala--</option>
+          <option *ngFor="let sala of salas" [value]="sala.idSala">
+            {{ sala.nombre }} (ID: {{sala.idSala}})
+          </option>
+        </select>
+      </div>
+      <button type="submit">Buscar</button>
+    </form>
+  
+    <div *ngIf="error" class="error">{{ error }}</div>
+  
+    <!-- Formulario de actualización -->
+    <form *ngIf="mostrarFormulario" [formGroup]="salaForm" (ngSubmit)="actualizarSala()">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" formControlName="nombre">
+      </div>
+      <div class="form-group">
+        <label for="estado">Estado</label>
+        <select id="estado" formControlName="estado">
+          <option value="Disponible">Disponible</option>
+          <option value="Ocupada">Ocupada</option>
+          <option value="Mantenimiento">Mantenimiento</option>
+        </select>
+      </div>
+      <button type="submit">Actualizar Sala</button>
+    </form>
+  
+    <div *ngIf="mensaje" style="color: green; margin-top: 1rem;">
+      {{ mensaje }}
+    </div>
+  </div>
+  
+  <div *ngIf="salaSeleccionada" class="table-container">
+    <h3>Ultimos Datos Actualizados</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ salaSeleccionada.idSala }}</td>
+          <td>{{ salaSeleccionada.nombre }}</td>
+          <td>{{ salaSeleccionada.estado }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

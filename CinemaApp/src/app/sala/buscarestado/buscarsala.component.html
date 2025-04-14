@@ -1,0 +1,38 @@
+<h2 class="panel-title">Buscar Estado de Sala</h2>
+<div class="form-container">
+    <form (ngSubmit)="buscarSala()">
+      <div class="form-group">
+        <label for="salaSelect">Seleccionar sala:</label>
+        <select id="salaSelect" class="form-control" [(ngModel)]="salaSeleccionadaId" name="salaSeleccionadaId" required>
+          <option [ngValue]="null" disabled>-- Seleccione una sala --</option>
+          <option *ngFor="let sala of salas" [ngValue]="sala.idSala">
+            {{ sala.nombre }}
+          </option>
+        </select>
+      </div>
+  
+      <button type="submit">Buscar</button>
+    </form>
+  
+    <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
+  </div>
+  
+  <div *ngIf="sala" class="table-container">
+    <h3>Última sala consultada:</h3>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ sala.idSala }}</td>
+          <td>{{ sala.nombre }}</td>
+          <td>{{ estado }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

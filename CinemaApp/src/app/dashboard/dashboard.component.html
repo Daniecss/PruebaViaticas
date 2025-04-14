@@ -1,0 +1,76 @@
+<!-- Título de la ventana -->
+<div class="container mt-5">
+    <div class="text-center mb-4">
+      <h1 class="panel-title">Panel de Administración de Cine</h1>
+      <p class="panel-subtitle">Visualiza los totales, últimas asignaciones y accede a las funciones de gestión de películas y salas</p>
+    </div>
+  
+    <!-- Mostrar los totales -->
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <div class="card total-card">
+          <div class="card-body text-center bg-info text-white">
+            <h5 class="card-title font-weight-bold">Total Películas</h5>
+            <p class="card-text display-4">{{ totalPeliculas }}</p>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-md-4">
+        <div class="card total-card">
+          <div class="card-body text-center bg-success text-white">
+            <h5 class="card-title font-weight-bold">Total Salas</h5>
+            <p class="card-text display-4">{{ totalSalas }}</p>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-md-4">
+        <div class="card total-card">
+          <div class="card-body text-center bg-warning text-white">
+            <h5 class="card-title font-weight-bold">Total Asignaciones</h5>
+            <p class="card-text display-4">{{ totalAsignaciones }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Mostrar la tabla con las asignaciones -->
+    <div class="card mt-4 shadow-lg rounded">
+      <div class="card-body">
+        <h5 class="card-title text-center font-weight-bold text-primary">Últimas Asignaciones</h5>
+        <div *ngIf="loading" class="text-center">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Cargando...</span>
+          </div>
+        </div>
+        <div *ngIf="error" class="alert alert-danger text-center">{{ error }}</div>
+        <table class="table table-striped table-hover mt-3" *ngIf="!loading && !error">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID Asignación</th>
+              <th>ID Película</th>
+              <th>Nombre Película</th>
+              <th>ID Sala</th>
+              <th>Nombre Sala</th>
+              <th>Fecha Publicación</th>
+              <th>Fecha Fin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let asignacion of asignaciones | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+              <td>{{ asignacion.idAsignacion }}</td>
+              <td>{{ asignacion.idPelicula }}</td>
+              <td>{{ asignacion.nombrePelicula }}</td>
+              <td>{{ asignacion.idSalaCine }}</td>
+              <td>{{ asignacion.nombreSalaCine }}</td>
+              <td>{{ asignacion.fechaPublicacion }}</td>
+              <td>{{ asignacion.fechaFin }}</td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <!-- Paginación -->
+        <pagination-controls (pageChange)="currentPage = $event" class="d-flex justify-content-center mt-3"></pagination-controls>
+      </div>
+    </div>

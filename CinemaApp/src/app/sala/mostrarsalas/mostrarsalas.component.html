@@ -1,0 +1,27 @@
+<h2 class="panel-title">Listado de Salas de Cine</h2>
+<div class="table-container">
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID Sala</th>
+          <th>Nombre</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sala of salas | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+          <td>{{ sala.idSala }}</td>
+          <td>{{ sala.nombre }}</td>
+          <td>{{ sala.estado }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+  
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+      {{ errorMessage }}
+    </div>
+  </div>
+  

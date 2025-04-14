@@ -1,0 +1,54 @@
+<h2 class="panel-title">Buscar y Actualizar Película</h2>
+<div class="form-container">
+  <!-- Formulario para seleccionar película -->
+  <form [formGroup]="buscarForm" (ngSubmit)="buscarPelicula()">
+    <div class="form-group">
+      <label for="id">Seleccione ID de Película</label>
+      <select id="id" formControlName="id">
+        <option value="">--Seleccione una película--</option>
+        <option *ngFor="let pelicula of peliculas" [value]="pelicula.idPelicula">
+          {{ pelicula.nombre }} (ID: {{pelicula.idPelicula}})
+        </option>
+      </select>
+    </div>
+    <button type="submit">Buscar</button>
+  </form>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <form *ngIf="mostrarFormulario" [formGroup]="peliculaForm" (ngSubmit)="actualizarPelicula()">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" formControlName="nombre">
+    </div>
+    <div class="form-group">
+      <label for="duracion">Duración (min)</label>
+      <input type="number" id="duracion" formControlName="duracion">
+    </div>
+    <button type="submit">Actualizar Película</button>
+  </form>
+
+  <div *ngIf="mensaje" style="color: green; margin-top: 1rem;">
+    {{ mensaje }}
+  </div>
+</div>
+
+<div *ngIf="peliculaSeleccionada" class="table-container">
+  <h3 class="panel-subtitle">Últimos Datos Actualizados</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Duración</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ peliculaSeleccionada.idPelicula }}</td>
+        <td>{{ peliculaSeleccionada.nombre }}</td>
+        <td>{{ peliculaSeleccionada.duracion }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

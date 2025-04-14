@@ -1,0 +1,47 @@
+<h2 class="panel-title">Buscar asignaciones por fecha</h2>
+<div class="form-container"> 
+    <form (ngSubmit)="buscarPorFecha()" #buscarForm="ngForm">
+      <div class="form-group">
+        <label for="fechaInicio">Fecha de publicación:</label>
+        <input
+          type="date"
+          id="fechaInicio"
+          name="fechaInicio"
+          [(ngModel)]="fechaInicio"
+          class="form-control"
+          required
+        />
+      </div>
+  
+      <button type="submit" class="btn btn-primary mt-2">Buscar asignaciones</button>
+    </form>
+  </div>
+  
+  <!-- Tabla para mostrar los resultados -->
+  <div class="table-container" *ngIf="resultados.length > 0">
+    <h3>Resultados de asignaciones</h3>
+  
+    <table class="table table-striped mt-4">
+      <thead>
+        <tr>
+          <th>ID Película</th>
+          <th>Nombre Película</th>
+          <th>ID Sala</th>
+          <th>Nombre Sala</th>
+          <th>Fecha Publicación</th>
+          <th>Fecha Fin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let asignacion of resultados">
+          <td>{{ asignacion.idPelicula }}</td>
+          <td>{{ asignacion.nombrePelicula }}</td>
+          <td>{{ asignacion.idSalaCine }}</td>
+          <td>{{ asignacion.nombreSalaCine }}</td>
+          <td>{{ asignacion.fechaPublicacion }}</td>
+          <td>{{ asignacion.fechaFin }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

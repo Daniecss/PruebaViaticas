@@ -1,0 +1,71 @@
+<h2 class="panel-title">Asignar Película a Sala</h2>
+<div class="form-container">
+    <div *ngIf="errorMessage" class="error-message error">
+      {{ errorMessage }}
+    </div>
+  
+    <form [formGroup]="asignacionForm" (ngSubmit)="onSubmit()">
+      <div class="form-grid-2x2">
+        <div class="form-group">
+          <label for="idPelicula">Seleccione Película</label>
+          <select formControlName="idPelicula" id="idPelicula">
+            <option *ngFor="let pelicula of peliculas" [value]="pelicula.idPelicula">
+              {{ pelicula.nombre }} (ID: {{ pelicula.idPelicula }})
+            </option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="idSalaCine">Seleccione Sala de Cine</label>
+          <select formControlName="idSalaCine" id="idSalaCine">
+            <option *ngFor="let sala of salas" [value]="sala.idSala">
+              {{ sala.nombre }} (ID: {{ sala.idSala }})
+            </option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="fechaPublicacion">Fecha de Publicación</label>
+          <input formControlName="fechaPublicacion" id="fechaPublicacion" type="date" />
+        </div>
+  
+        <div class="form-group">
+          <label for="fechaFin">Fecha de Fin</label>
+          <input formControlName="fechaFin" id="fechaFin" type="date" />
+        </div>
+      </div>
+  
+      <button type="submit">Asignar</button>
+  
+      <div *ngIf="mensaje" style="margin-top: 10px; color: green;">
+        {{ mensaje }}
+      </div>
+    </form>
+  </div>
+  
+  <div *ngIf="lastAsignacion" class="table-container">
+    <h3>Última asignación registrada</h3>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID Película</th>
+          <th>Nombre Película</th>
+          <th>ID Sala</th>
+          <th>Nombre Sala</th>
+          <th>Fecha Publicación</th>
+          <th>Fecha Fin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ lastAsignacion.idPelicula }}</td>
+          <td>{{ lastAsignacion.nombrePelicula }}</td>
+          <td>{{ lastAsignacion.idSalaCine }}</td>
+          <td>{{ lastAsignacion.nombreSalaCine }}</td>
+          <td>{{ lastAsignacion.fechaPublicacion }}</td>
+          <td>{{ lastAsignacion.fechaFin }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

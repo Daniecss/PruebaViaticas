@@ -1,0 +1,41 @@
+<h2 class="panel-title">Buscar Sala de Cine</h2>
+<div class="form-container">
+
+  <form (submit)="buscarSala(); $event.preventDefault()">
+    <div class="form-group">
+      <label for="salaSelect" class="form-label">Seleccione una sala:</label>
+      <select id="salaSelect" [(ngModel)]="idSeleccionado" name="idSeleccionado" class="form-select" required>
+        <option [ngValue]="null">-- Seleccionar --</option>
+        <option *ngFor="let sala of salas" [value]="sala.idSala">
+          ID {{ sala.idSala }} - {{ sala.nombre }}
+        </option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+  </form>
+
+  <div *ngIf="error" class="mt-3 alert alert-danger">
+    {{ error }}
+  </div>
+</div>
+
+<!-- Tabla con resultados -->
+<div *ngIf="resultado" class="table-container">
+  <h3>Ultima Busqueda</h3>
+  <table class="table table-bordered table-striped mt-2">
+    <thead class="table-dark">
+      <tr>
+        <th>ID de Sala</th>
+        <th>Nombre</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ resultado.idSala }}</td>
+        <td>{{ resultado.nombre }}</td>
+        <td>{{ resultado.estado }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
