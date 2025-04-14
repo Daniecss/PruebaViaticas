@@ -8,8 +8,7 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["CinemaAPI/CinemaAPI.csproj", "CinemaAPI/"]
 RUN dotnet restore "CinemaAPI/CinemaAPI.csproj"
-COPY . .
-WORKDIR "/src/CinemaAPI"
+COPY ["CinemaAPI.csproj", "./"]WORKDIR "/src/CinemaAPI"
 RUN dotnet build "CinemaAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish
