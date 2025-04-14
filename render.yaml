@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: CinemaAPI
+    env: dotnet
+    buildCommand: 'dotnet build'
+    startCommand: 'dotnet CinemaAPI.dll'
+    branch: master
+    plan: free
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
